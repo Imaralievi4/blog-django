@@ -1,0 +1,12 @@
+{% extends 'includes/base.html' %}
+{% load static %}
+
+{% block body %}
+<h1>{{ post.title}}</h1>
+<p>{{ post.text }}</p>
+{% if post.image %}<img height="200" src="{{ post.image.url }}">{% endif %}
+<p> Опубликовано: {{ post.created_at }}</p>
+{{ post.author }} <br>
+<a role=" button " class="btn btn-primary" href="{% url 'update-post' post.id %}"> Изменить </a> <br>
+<a role=" button " class="btn btn-danger" href="{% url 'delete-post' post.id %}"> Удалить </a>
+{% endblock body%}
